@@ -1,4 +1,4 @@
-document.getElementById("main-title")[0].style.color = "red";
+document.getElementsByClassName("main-title")[0].style.color = "red";
 
 document.getElementById("main-action-button").onclick = function () {
     document.getElementById("products").scrollIntoView({behavior: "smooth"});
