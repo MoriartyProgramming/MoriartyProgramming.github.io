@@ -331,9 +331,7 @@ if (!sessionStorage.getItem('sessionEnter')) {
     });
 }
 
-window.addEventListener('load', function () {
-    document.querySelector(".page-loader").classList.add("page-loader_hidden");
-});
+pageLoader();
 
 function pageLoader(time = 1000) {
     document.querySelector(".page-loader").classList.remove("page-loader_hidden");
