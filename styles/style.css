@@ -752,6 +752,7 @@ html {
   width: 100%;
   padding: 12px;
   padding-bottom: 20px;
+  height: 100%;
 }
 .catalog-page .site-main .container-catalog .content-wrapper .products-block .product .image {
   border-radius: 20px;
