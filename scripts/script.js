@@ -317,7 +317,6 @@ let catalogData = [{
 
 if (!sessionStorage.getItem('sessionEnter')) {
     sessionStorage.setItem('sessionEnter', '1');
-    document.body.classList.add("block-scroll");
     const myPopup = new Popup({
         id: "disclaimerTekwill",
         title: "Disclaimer",
@@ -325,9 +324,6 @@ if (!sessionStorage.getItem('sessionEnter')) {
         Acest website a fost realizat în cadrul competiției "Tekwill Junior Ambassadors" organizată de proiectul "Tekwill în Fiecare Școală" și nu reflectă neapărat opinia proiectului.
         `,
         showImmediately: true,
-        hideCallback: () => {
-            document.body.classList.remove("block-scroll");
-        },
     });
 }
 
