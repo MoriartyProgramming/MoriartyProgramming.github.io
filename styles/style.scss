@@ -1297,6 +1297,7 @@ textarea {
         .content-wrapper {
           .blocks {
             .line {
+              height: auto;
               &:first-child {
                 max-height: 100%;
                 flex-direction: column;

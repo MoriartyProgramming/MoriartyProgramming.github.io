@@ -1119,6 +1119,9 @@ textarea::placeholder {
   .main-page .site-main .container-gallery {
     margin-top: 80px;
   }
+  .main-page .site-main .container-gallery .content-wrapper .blocks .line {
+    height: auto;
+  }
   .main-page .site-main .container-gallery .content-wrapper .blocks .line:first-child {
     max-height: 100%;
     flex-direction: column;
