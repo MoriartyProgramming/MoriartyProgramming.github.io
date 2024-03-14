@@ -400,6 +400,7 @@ if (document.querySelector(".catalog-page")) {
         });
         splide.mount();
 
+        //category switch from page
         let categories = document.getElementById("categories").querySelectorAll(".category");
         if (categories) {
             categories.forEach((elem, id) => {
