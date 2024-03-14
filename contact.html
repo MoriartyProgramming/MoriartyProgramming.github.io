@@ -9,16 +9,33 @@
     />
     <link rel="icon" type="image/x-icon" href="./assets/images/svg/logo.svg" />
     <title>Riri Leather</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css"
+    />
     <link rel="stylesheet" href="./styles/style.css" />
   </head>
   <body>
     <div class="page contact-page">
       <div class="page-loader page-loader_hidden">
-        <img
-          src="./assets/images/other/loading.gif"
-          alt="Loading..."
-          class="icon"
-        />
+        <div class="loader">
+          <div class="circle">
+            <div class="dot"></div>
+            <div class="outline"></div>
+          </div>
+          <div class="circle">
+            <div class="dot"></div>
+            <div class="outline"></div>
+          </div>
+          <div class="circle">
+            <div class="dot"></div>
+            <div class="outline"></div>
+          </div>
+          <div class="circle">
+            <div class="dot"></div>
+            <div class="outline"></div>
+          </div>
+        </div>
       </div>
       <div class="page-overlay"></div>
       <header class="site-header">
@@ -84,31 +101,37 @@
               </div>
             </div>
             <form
+              id="my-form"
+              class="contact-form"
               action="https://formspree.io/f/mdoqdpor"
               method="POST"
-              class="contact-form"
             >
               <h3 class="title">Scrie un mesaj</h3>
-              <div class="email complex-input">
-                <img src="./assets/images/svg/iconMail.svg" alt="" />
-                <input type="email" class="email-input" placeholder="Email" />
-              </div>
-              <div class="phone complex-input">
-                <img src="./assets/images/svg/iconCall.svg" alt="" />
-                <input type="tel" class="phone" placeholder="Phone" />
-              </div>
-              <div class="complex-input">
-                <img src="./assets/images/svg/iconNote.svg" alt="" />
-                <textarea
-                  name="note"
-                  id="note"
-                  cols="30"
-                  rows="5"
-                  placeholder="Notes"
-                  class="note"
-                ></textarea>
-              </div>
-              <button class="submit">Trimite</button>
+              <input
+                type="email"
+                name="email"
+                class="email-input"
+                placeholder="Email"
+                required
+              />
+              <input
+                type="tel"
+                name="phone"
+                class="phone"
+                placeholder="Phone"
+                required
+              />
+              <textarea
+                id="note"
+                cols="30"
+                rows="5"
+                name="message"
+                placeholder="Notes"
+                class="note"
+              ></textarea>
+              <button id="my-form-button" type="submit" class="submit">
+                Trimite
+              </button>
             </form>
           </div>
         </section>
@@ -151,6 +174,13 @@
       </footer>
     </div>
 
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+      integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@simondmc/popup-js@1.4.2/popup.min.js"></script>
     <script src="./scripts/script.js"></script>
   </body>

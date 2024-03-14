@@ -1,4 +1,5 @@
 // --------------------- Global scripts ------------------------
+
 let catalogData = [{
         id: 0,
         type: "bags",
@@ -315,6 +316,15 @@ let catalogData = [{
     },
 ]
 
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+if (urlParams.has('type_id')) {
+    if (!isNaN(urlParams.get('type_id'))) {
+        let categoryId = parseInt(urlParams.get('type_id'));
+        getCategory(categoryId)
+    }
+}
+
 if (!sessionStorage.getItem('sessionEnter')) {
     sessionStorage.setItem('sessionEnter', '1');
     const myPopup = new Popup({
@@ -366,14 +376,11 @@ if (document.querySelector(".site-header")) {
 // --------------------- Catalog scripts ------------------------
 if (document.querySelector(".catalog-page")) {
     if (document.getElementById("categories")) {
-        var splide = new Splide('.splide', {
+        let splide = new Splide('.splide', {
             type: 'loop',
             autoplay: true,
             interval: 3000,
             arrows: false
-        });
-        splide.on('mounted move', function () {
-            var end = splide.Components.Controller.getEnd() + 1;
         });
         splide.mount();
 
@@ -396,6 +403,7 @@ if (document.querySelector(".catalog-page")) {
 
 function getCategory(categoryId = 0) {
     let categoryData = catalogData[categoryId];
+    window.history.pushState(null, null, `/?type=${categoryData.type}&type_id=${categoryId}`);
     let previewLeftText = document.querySelector(".preview-left-text");
     let previewLeftImage = document.querySelector(".preview-left-image");
     let previewRightImage1 = document.querySelector(".preview-right-image1");
@@ -445,6 +453,61 @@ function getCategory(categoryId = 0) {
                 </div>
               </div>`;
             productsBlock.innerHTML += product;
+        });
+    }
+}
+
+// --------------------- Contact scripts ------------------------
+if (document.querySelector(".contact-page")) {
+    toastr.options = {
+        "closeButton": true,
+        "debug": false,
+        "newestOnTop": true,
+        "progressBar": true,
+        "positionClass": "toast-top-right",
+        "preventDuplicates": false,
+        "showDuration": "300",
+        "hideDuration": "1000",
+        "timeOut": "5000",
+        "extendedTimeOut": "1000",
+        "showEasing": "swing",
+        "hideEasing": "linear",
+        "showMethod": "fadeIn",
+        "hideMethod": "fadeOut"
+    }
+    if (document.getElementById("my-form")) {
+        let form = document.getElementById("my-form");
+
+        form.addEventListener("submit", (event) => {
+            event.preventDefault();
+            let data = new FormData(event.target);
+            if (data) {
+                if (data.get("email").trim().includes("@") && data.get("phone").trim()) {
+                    let xhr = new XMLHttpRequest();
+                    xhr.open(form.method, form.action, true);
+                    xhr.setRequestHeader('Accept', 'application/json');
+
+                    xhr.onreadystatechange = function () {
+                        if (xhr.readyState === XMLHttpRequest.DONE) {
+                            if (xhr.status === 200) {
+                                toastr["success"]("Forma a fost trimisa cu succes!", "Success");
+                                form.reset();
+                            } else {
+                                let responseJSON = JSON.parse(xhr.responseText);
+                                if (responseJSON.errors) {
+                                    toastr["error"](`Eroare la trimiterea formei: ${error.message}`, "Error");
+                                } else {
+                                    toastr["error"]("A aparut o problema necunoscuta la trimiterea formei", "Error");
+                                }
+                            }
+                        }
+                    };
+
+                    xhr.send(data);
+                } else {
+                    toastr["error"]("Introduceti datele necesare", "Error");
+                }
+            }
         });
     }
 }
