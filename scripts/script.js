@@ -403,7 +403,7 @@ if (document.querySelector(".catalog-page")) {
 
 function getCategory(categoryId = 0) {
     let categoryData = catalogData[categoryId];
-    window.history.pushState(null, null, `/?type=${categoryData.type}&type_id=${categoryId}`);
+    window.history.pushState(null, null, `/catalog/?type=${categoryData.type}&type_id=${categoryId}`);
     let previewLeftText = document.querySelector(".preview-left-text");
     let previewLeftImage = document.querySelector(".preview-left-image");
     let previewRightImage1 = document.querySelector(".preview-right-image1");
