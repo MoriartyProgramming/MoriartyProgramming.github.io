@@ -316,15 +316,7 @@ let catalogData = [{
     },
 ]
 
-const queryString = window.location.search;
-const urlParams = new URLSearchParams(queryString);
-if (urlParams.has('type_id')) {
-    if (!isNaN(urlParams.get('type_id'))) {
-        let categoryId = parseInt(urlParams.get('type_id'));
-        getCategory(categoryId)
-    }
-}
-
+// 1 disclaimer per session control
 if (!sessionStorage.getItem('sessionEnter')) {
     sessionStorage.setItem('sessionEnter', '1');
     const myPopup = new Popup({
@@ -346,11 +338,13 @@ function pageLoader(time = 1000) {
     }, time);
 }
 
+// overlay of body for modals
 let overlay;
 if (document.querySelector(".page-overlay")) {
     overlay = document.querySelector(".page-overlay")
 }
 
+// header for mobile view
 if (document.querySelector(".site-header")) {
     let menu = document.querySelector(".header-menu");
     let menuOpen = document.querySelector(".burger-menu");
@@ -375,7 +369,29 @@ if (document.querySelector(".site-header")) {
 
 // --------------------- Catalog scripts ------------------------
 if (document.querySelector(".catalog-page")) {
+    let activeCategoryId = 0;
+    // get categories by url
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    if (urlParams.has('type_id')) {
+        if (!isNaN(urlParams.get('type_id'))) {
+            activeCategoryId = parseInt(urlParams.get('type_id'));
+            window.history.pushState(null, null, `?type_id=${activeCategoryId}`);
+            // set current category active button
+            let categories = document.getElementById("categories").querySelectorAll(".category");
+            if (categories) {
+                categories.forEach((elem) => {
+                    elem.classList.remove("category_active");
+                });
+                categories[activeCategoryId].classList.add("category_active");
+            }
+            getCategory(activeCategoryId)
+        }
+    } else {
+        getCategory();
+    }
     if (document.getElementById("categories")) {
+        // center slider of each category page
         let splide = new Splide('.splide', {
             type: 'loop',
             autoplay: true,
@@ -385,9 +401,7 @@ if (document.querySelector(".catalog-page")) {
         splide.mount();
 
         let categories = document.getElementById("categories").querySelectorAll(".category");
-        getCategory();
         if (categories) {
-            let activeCategoryId = 0;
             categories.forEach((elem, id) => {
                 elem.addEventListener("click", () => {
                     categories[activeCategoryId].classList.remove("category_active");
@@ -403,7 +417,8 @@ if (document.querySelector(".catalog-page")) {
 
 function getCategory(categoryId = 0) {
     let categoryData = catalogData[categoryId];
-    window.history.pushState(null, null, `/catalog/?type=${categoryData.type}&type_id=${categoryId}`);
+    // console.log(categoryId);
+    window.history.pushState(null, null, `?type_id=${categoryId}`);
     let previewLeftText = document.querySelector(".preview-left-text");
     let previewLeftImage = document.querySelector(".preview-left-image");
     let previewRightImage1 = document.querySelector(".preview-right-image1");
