@@ -327,13 +327,14 @@ textarea::placeholder {
 .page .site-header {
   max-width: var(--desktopMaxWidth);
   margin: 0 auto;
+  position: sticky;
 }
 .page .site-header .header-wrapper {
   display: flex;
   justify-content: space-between;
   margin-right: var(--containerMargin);
   margin-left: var(--containerMargin);
-  padding-top: 40px;
+  padding-top: var(--containerMargin);
   align-items: center;
 }
 .page .site-header .header-wrapper .logo {
@@ -400,7 +401,6 @@ textarea::placeholder {
   height: 40px;
   background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="40" height="40" viewBox="0 0 50 50" ><path d="M 5 8 A 2.0002 2.0002 0 1 0 5 12 L 45 12 A 2.0002 2.0002 0 1 0 45 8 L 5 8 z M 5 23 A 2.0002 2.0002 0 1 0 5 27 L 45 27 A 2.0002 2.0002 0 1 0 45 23 L 5 23 z M 5 38 A 2.0002 2.0002 0 1 0 5 42 L 45 42 A 2.0002 2.0002 0 1 0 45 38 L 5 38 z" ></path></svg>');
   background-repeat: no-repeat;
-  margin-top: 10px;
 }
 .page .site-header .header-wrapper .header-menu {
   box-shadow: 0px 5px 25px 5px rgba(255, 255, 255, 0.3);
@@ -596,6 +596,11 @@ textarea::placeholder {
   background-position: center;
   background-size: cover;
   transition: all 0.4s ease-in-out;
+}
+.main-page .site-main .hero .content-wrapper .gallery-block .line .block .link {
+  display: block;
+  height: 100%;
+  width: 100%;
 }
 .main-page .site-main .hero .content-wrapper .gallery-block .line .block .text {
   font-family: "TT Travels Light";
@@ -909,7 +914,7 @@ textarea::placeholder {
 .catalog-page .site-main .container-catalog .content-wrapper .products-block .product .info .text {
   font-family: "TT Travels Light";
   max-width: 70%;
-  font-size: 10px;
+  font-size: 13px;
 }
 .catalog-page .site-main .container-catalog .content-wrapper .products-block .product .info .bag-icon::before {
   position: absolute;
@@ -1095,6 +1100,12 @@ textarea::placeholder {
   }
   .text {
     font-size: 16px;
+  }
+  .page .site-header .header-wrapper .logo {
+    max-width: 52px;
+  }
+  .page .site-footer .footer-wrapper .content .logo img {
+    max-width: 56px;
   }
   .main-page .site-main .hero .content-wrapper .gallery-block {
     flex-direction: column;

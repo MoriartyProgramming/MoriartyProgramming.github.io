@@ -367,6 +367,11 @@ if (document.querySelector(".site-header")) {
     });
 }
 
+window.addEventListener('pushstate', function (event) {
+    // Log the state data to the console
+    console.log(event.state);
+});
+
 // --------------------- Catalog scripts ------------------------
 if (document.querySelector(".catalog-page")) {
     let activeCategoryId = 0;
@@ -376,7 +381,6 @@ if (document.querySelector(".catalog-page")) {
     if (urlParams.has('type_id')) {
         if (!isNaN(urlParams.get('type_id'))) {
             activeCategoryId = parseInt(urlParams.get('type_id'));
-            window.history.pushState(null, null, `?type_id=${activeCategoryId}`);
             // set current category active button
             let categories = document.getElementById("categories").querySelectorAll(".category");
             if (categories) {
@@ -419,7 +423,8 @@ if (document.querySelector(".catalog-page")) {
 function getCategory(categoryId = 0) {
     let categoryData = catalogData[categoryId];
     // console.log(categoryId);
-    window.history.pushState(null, null, `?type_id=${categoryId}`);
+    window.history.replaceState(null, null, `?type_id=${categoryId}`);
+    // window.history.pushState(null, null, `?type_id=${categoryId}`);
     let previewLeftText = document.querySelector(".preview-left-text");
     let previewLeftImage = document.querySelector(".preview-left-image");
     let previewRightImage1 = document.querySelector(".preview-right-image1");
@@ -455,6 +460,7 @@ function getCategory(categoryId = 0) {
             let product = `<div class="product" id="product-${elem.id}">
                 <figure class="image">
                   <img
+                    loading = "lazy"
                     src="${elem.image}"
                     alt="${categoryData.type}-${elem.id}"
                   />

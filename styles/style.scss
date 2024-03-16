@@ -354,12 +354,13 @@ textarea {
   .site-header {
     max-width: var(--desktopMaxWidth);
     margin: 0 auto;
+    position: sticky;
     .header-wrapper {
       display: flex;
       justify-content: space-between;
       margin-right: var(--containerMargin);
       margin-left: var(--containerMargin);
-      padding-top: 40px;
+      padding-top: var(--containerMargin);
       align-items: center;
       .logo {
         max-width: 68px;
@@ -426,7 +427,6 @@ textarea {
           height: 40px;
           background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="40" height="40" viewBox="0 0 50 50" ><path d="M 5 8 A 2.0002 2.0002 0 1 0 5 12 L 45 12 A 2.0002 2.0002 0 1 0 45 8 L 5 8 z M 5 23 A 2.0002 2.0002 0 1 0 5 27 L 45 27 A 2.0002 2.0002 0 1 0 45 23 L 5 23 z M 5 38 A 2.0002 2.0002 0 1 0 5 42 L 45 42 A 2.0002 2.0002 0 1 0 45 38 L 5 38 z" ></path></svg>');
           background-repeat: no-repeat;
-          margin-top: 10px;
         }
       }
       .header-menu {
@@ -638,6 +638,11 @@ textarea {
               background-position: center;
               background-size: cover;
               transition: all 0.4s ease-in-out;
+              .link {
+                display: block;
+                height: 100%;
+                width: 100%;
+              }
               .text {
                 font-family: "TT Travels Light";
                 font-weight: 100;
@@ -977,7 +982,7 @@ textarea {
               .text {
                 font-family: "TT Travels Light";
                 max-width: 70%;
-                font-size: 10px;
+                font-size: 13px;
               }
               .bag-icon {
                 &::before {
@@ -1265,6 +1270,27 @@ textarea {
 
   .text {
     font-size: 16px;
+  }
+
+  .page {
+    .site-header {
+      .header-wrapper {
+        .logo {
+          max-width: 52px;
+        }
+      }
+    }
+    .site-footer {
+      .footer-wrapper {
+        .content {
+          .logo {
+            img {
+              max-width: 56px;
+            }
+          }
+        }
+      }
+    }
   }
 
   .main-page {
