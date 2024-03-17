@@ -145,6 +145,18 @@ textarea::placeholder {
   color: rgba(var(--black), 0.5);
 }
 
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--oliveGrey);
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--creme);
+}
+
 #root,
 #__next {
   isolation: isolate;
