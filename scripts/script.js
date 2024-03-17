@@ -367,6 +367,18 @@ if (document.querySelector(".site-header")) {
     });
 }
 
+if (document.querySelector(".back-to-top")) {
+    window.addEventListener('scroll', function () {
+        let scrollPosition = window.scrollY;
+        let toTop = document.querySelector(".back-to-top")
+        if (scrollPosition > 200) {
+            toTop.classList.remove("back-to-top__hidden");
+        } else {
+            toTop.classList.add("back-to-top__hidden");
+        }
+    });
+}
+
 window.addEventListener('pushstate', function (event) {
     // Log the state data to the console
     console.log(event.state);
