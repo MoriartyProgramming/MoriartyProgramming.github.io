@@ -333,7 +333,6 @@ textarea::placeholder {
 .page .site-header {
   max-width: var(--desktopMaxWidth);
   margin: 0 auto;
-  position: sticky;
 }
 .page .site-header .header-wrapper {
   display: flex;
@@ -413,13 +412,13 @@ textarea::placeholder {
   text-decoration: none;
   cursor: initial;
   overflow-y: auto;
-  z-index: 999;
+  z-index: 99999999;
   min-width: 250px;
   height: 100%;
   position: fixed;
   top: 0;
   right: 0;
-  padding-top: 55px;
+  padding-top: var(--containerMargin);
   padding-left: 30px;
   transition: all 0.5s ease;
   display: flex;
