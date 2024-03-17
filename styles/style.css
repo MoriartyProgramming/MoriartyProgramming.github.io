@@ -76,6 +76,9 @@ html {
 .title {
   font-family: "Outfit";
   font-size: 56px;
+}
+
+.section-title {
   line-height: 60px;
   font-weight: 500;
   margin-bottom: 10px;
@@ -1098,7 +1101,9 @@ textarea::placeholder {
 @media screen and (max-width: 767px) {
   .title {
     font-size: 36px;
-    line-height: 40;
+  }
+  .section-title {
+    line-height: 40px;
   }
   .subtitle {
     font-size: 20px;
