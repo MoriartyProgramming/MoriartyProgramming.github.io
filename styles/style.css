@@ -76,6 +76,9 @@ html {
 .title {
   font-family: "Outfit";
   font-size: 56px;
+  line-height: 60px;
+  font-weight: 500;
+  margin-bottom: 10px;
 }
 
 .subtitle {
@@ -552,6 +555,7 @@ textarea::placeholder {
 .main-page .site-main .hero .content-wrapper .info-block {
   max-width: 700px;
   margin: 0 auto;
+  margin-top: 90px;
 }
 .main-page .site-main .hero .content-wrapper .info-block .subtitle {
   max-width: 510px;
@@ -1094,6 +1098,7 @@ textarea::placeholder {
 @media screen and (max-width: 767px) {
   .title {
     font-size: 36px;
+    line-height: 40;
   }
   .subtitle {
     font-size: 20px;
