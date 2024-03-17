@@ -379,11 +379,6 @@ if (document.querySelector(".back-to-top")) {
     });
 }
 
-window.addEventListener('pushstate', function (event) {
-    // Log the state data to the console
-    console.log(event.state);
-});
-
 // --------------------- Catalog scripts ------------------------
 if (document.querySelector(".catalog-page")) {
     let activeCategoryId = 0;
@@ -434,7 +429,6 @@ if (document.querySelector(".catalog-page")) {
 
 function getCategory(categoryId = 0) {
     let categoryData = catalogData[categoryId];
-    // console.log(categoryId);
     window.history.replaceState(null, null, `?type_id=${categoryId}`);
     // window.history.pushState(null, null, `?type_id=${categoryId}`);
     let previewLeftText = document.querySelector(".preview-left-text");
