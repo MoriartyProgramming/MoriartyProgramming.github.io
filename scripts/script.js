@@ -4,7 +4,7 @@ if (document.querySelector(".page")) {
     if (document.querySelector(".site-header")) {
         window.addEventListener('scroll', function () {
             let scrollPosition = window.scrollY;
-            if (scrollPosition > 10 && width > 767) {
+            if (scrollPosition > 10) {
                 page.classList.add("page-scrolled");
             } else {
                 page.classList.remove("page-scrolled");
