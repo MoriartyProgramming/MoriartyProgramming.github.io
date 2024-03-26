@@ -319,7 +319,7 @@ a {
       }
     }
   }
-  .container-companies {
+  .container-companies-slider {
     user-select: none;
     width: 100%;
     margin: 0 auto;
@@ -340,10 +340,11 @@ a {
         align-items: center;
         justify-content: space-between;
         gap: 120px;
-        animation: scroll 25s 0.5s linear infinite;
+        animation: scroll 40s 0.5s linear infinite;
         .logo {
           .img-company {
             min-width: 166px;
+            max-width: 166px;
             height: auto;
           }
         }
@@ -352,7 +353,7 @@ a {
             transform: translateX(0);
           }
           to {
-            transform: translateX(calc(-286px * 6));
+            transform: translateX(calc(-286px * 8));
           }
         }
       }
@@ -400,29 +401,58 @@ a {
         margin-top: 50px;
       }
       .block-cards {
-        margin-top: 45px;
         display: flex;
-        flex-wrap: wrap;
         justify-content: center;
-        gap: 25px;
-        .card {
-          box-shadow: 4px 8px 14px rgba($color: #000000, $alpha: 0.25);
-          margin-top: 30px;
-          position: relative;
-          max-width: 350px;
-          background: #deeeff;
-          background-image: url(../assets/images/svg/cardBg.svg);
-          background-repeat: no-repeat;
-          background-size: cover;
-          padding: 65px 40px;
-          padding-bottom: 30px;
-          border-radius: 16px;
-          .icon {
+        position: relative;
+        padding: 0 30px;
+        .swiper-wrapper {
+          margin: 0 auto;
+          display: flex;
+          align-items: center;
+          .card {
+            height: 100%;
             user-select: none;
-            top: -40px;
-            left: 50%;
-            transform: translate(-50%);
-            position: absolute;
+            box-shadow: 4px 8px 14px rgba($color: #000000, $alpha: 0.25);
+            margin-top: 40px;
+            position: relative;
+            max-width: 950px;
+            width: 100%;
+            background: var(--blue2);
+            background-repeat: no-repeat;
+            background-size: cover;
+            padding: 65px 40px;
+            padding-bottom: 30px;
+            border-radius: 16px;
+            .text {
+              font-size: 24px;
+              text-align: center;
+            }
+            .icon {
+              border-radius: 100%;
+              user-select: none;
+              height: 70px;
+              width: 70px;
+              top: -40px;
+              left: 50%;
+              transform: translate(-50%);
+              position: absolute;
+            }
+          }
+        }
+        .swiper-button-next,
+        .swiper-button-prev {
+          margin-top: 0px;
+          border: 3px solid var(--blue2);
+          border-radius: 100%;
+          height: 40px;
+          width: 40px;
+          background: #e9f4ff;
+          &::after {
+            font-size: 20px;
+            font-weight: 900;
+            font-style: bold;
+            height: auto;
+            color: var(--blue2);
           }
         }
       }
@@ -436,10 +466,35 @@ a {
         align-items: center;
         .image {
           user-select: none;
+          min-width: 40%;
         }
-        .text {
-          margin-top: 20px;
-          max-width: 630px;
+        .info {
+          width: 100%;
+          .text {
+            margin-top: 20px;
+            text-align: justify;
+          }
+          .list-title {
+            font-size: 20px;
+            line-height: 20px;
+          }
+          .list {
+            margin-top: 15px;
+            padding-left: 20px;
+            list-style-type: none;
+            li {
+              display: flex;
+              gap: 20px;
+              align-items: center;
+              &:before {
+                content: "";
+                min-width: 7px;
+                height: 7px;
+                border-radius: 100%;
+                background: var(--textDark);
+              }
+            }
+          }
         }
       }
     }
@@ -627,27 +682,6 @@ a {
           }
           .bar {
             display: none;
-          }
-        }
-      }
-    }
-  }
-}
-
-@media screen and (max-width: 400px) {
-  .main-page {
-    .container-why-us {
-      .content-wrapper {
-        .block-cards {
-          .card {
-            background: var(--blue2);
-            padding-top: 90px;
-            padding-left: 20px;
-            padding-right: 20px;
-            .icon {
-              top: 10px;
-              filter: brightness(0) invert(0.9);
-            }
           }
         }
       }
