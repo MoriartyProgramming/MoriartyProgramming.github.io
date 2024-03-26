@@ -57,7 +57,7 @@
 body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
-  font-family: "TT Travels";
+  font-family: "Poppins-Regular";
 }
 
 img,
@@ -128,7 +128,7 @@ a {
   top: 1rem;
   width: 100%;
   margin: 0 auto;
-  padding: 10px 0;
+  padding: 0.6rem 0;
   -webkit-backdrop-filter: blur(0px);
   backdrop-filter: blur(0px);
   position: fixed;
@@ -142,7 +142,7 @@ a {
   padding-right: var(--containerMargin);
   padding-left: var(--containerMargin);
   align-items: center;
-  gap: 30px;
+  gap: 2rem;
 }
 .page .site-header .header-wrapper .logo {
   max-width: 15vw;
@@ -155,7 +155,7 @@ a {
 }
 .page .site-header .header-wrapper .navigation {
   display: flex;
-  gap: 63px;
+  gap: 3rem;
 }
 .page .site-header .header-wrapper .navigation .nav-item {
   transition: all 0.3s ease;
@@ -377,6 +377,7 @@ a {
   }
 }
 .main-page .container-agenda {
+  overflow: hidden;
   background: var(--mainBg2);
 }
 .main-page .container-agenda .content-wrapper {
@@ -386,19 +387,34 @@ a {
   padding-top: 180px;
   padding-bottom: 160px;
 }
+.main-page .container-agenda .content-wrapper .list {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
 .main-page .container-agenda .content-wrapper .list .list-item {
   position: relative;
 }
 .main-page .container-agenda .content-wrapper .list .list-item .graphics {
+  bottom: 50%;
+  transform: translate(0, 2%);
+  border-radius: 0 0 0 70px;
   position: absolute;
+  height: 25rem;
+  width: 5rem;
+  border-left: 1rem solid var(--blue);
+  border-bottom: 1rem solid var(--blue);
+  z-index: 1;
 }
 .main-page .container-agenda .content-wrapper .list .list-item .info {
+  margin-left: 5rem;
   border-radius: 1.7rem;
   background: var(--white);
   padding: 2rem 2rem 2rem 4rem;
   display: flex;
   font-size: 1.5rem;
   align-items: center;
+  z-index: 2;
 }
 .main-page .container-agenda .content-wrapper .list .list-item .info .hour {
   max-width: 12rem;
@@ -421,5 +437,10 @@ a {
   .page .site-footer .footer-wrapper {
     flex-direction: column;
     gap: 50px;
+  }
+}
+@media screen and (max-width: 767px) {
+  html {
+    font-size: 2vw;
   }
 }
